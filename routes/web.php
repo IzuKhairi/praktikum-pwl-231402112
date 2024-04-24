@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoTaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-});
+//Route::get('/', [TodoTaskController::class, 'index'])->name('home');
 
-Route::get('/welcome', function () {
-    return view('Welcome');
-});
+//Route::get('/welcome', function () {
+  //  return view('Welcome');
+//});
+
+//Route::post('/', function (Request $request) {
+   // return ;$request-> task;
+//});
+Route::get('/',[TodoTaskController::class,'index']);
+Route::post('/',[TodoTaskController::class,'tambah']);
+Route::delete('/deleteTask/{id}', [TodoTaskController::class, 'deleteTask']);
+// Route::post('/tambahTask', [TodoTaskController::class, 'addTask']);
+// Route::get('/edit/{id}', [TodoTaskController::class, 'editTask']);
+// Route::put('/updateTask', [TodoTaskController::class, 'updateTask']);
+// Route::delete('/deleteTask/{id}', [TodoTaskController::class, 'deleteTask']);
+// Route::get('/{id}', [TodoTaskController::class, 'showTask']);
